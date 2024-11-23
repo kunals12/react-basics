@@ -1,46 +1,35 @@
-import { useState, useEffect } from "react";
-import './App.css'
+import React from "react"
+
+const Card = ({children}) => {
+  return (
+    <div style={{
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+      padding: '20px',
+      margin: '10px',
+      boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.1)'
+    }}>
+      {children}
+    </div>
+  )
+}
 
 function App() {
   return (
     <div>
-      <b>Hi there</b>
-      <Counter />
+      <Card>
+        <h2>Card Title</h2>
+        <p>This is some conternt inside card</p>
+      </Card>
+      <Card>
+        <h2>Another Title</h2>
+        <p>This is some conternt inside card</p>
+      </Card>
     </div>
 
   )
 }
 
 
-
-
-function Counter() {
-  const [count, setCount] = useState(1);
-
-  function increaseCount() {
-    setCount(count + 1);
-  }
-
-  function decreaseCount() {
-    setCount(count - 1);
-  }
-
-  useEffect(() => {
-    setInterval(() => {
-      setCount(count => count + 1)
-    }, 1000);
-  }, [])
-
-
-
-
-
-  return <div>
-    <h1>{count}</h1>
-    <button onClick={increaseCount}>Increase Counter</button>
-    <button onClick={decreaseCount}>Decrease Counter</button>
-
-  </div>
-}
 
 export default App
